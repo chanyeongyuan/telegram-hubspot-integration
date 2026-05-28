@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: telegram-hubspot-integration
+    runtime: node
+    plan: starter
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /api/health
+    disk:
+      name: telegram-hubspot-state
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: STATE_FILE_PATH
+        value: /var/data/state.json
+      - key: HUBSPOT_PORTAL_ID
+        value: "50444105"
+      - key: TELEGRAM_BUSINESS_ACCOUNT_NAME
+        value: Telegram Business
+      - key: HUBSPOT_CHANNEL_NAME
+        value: Telegram Business
+      - key: HUBSPOT_CHANNEL_DESCRIPTION
+        value: Route Telegram Business 1:1 enquiries into HubSpot.
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_WEBHOOK_SECRET
+        sync: false
+      - key: HUBSPOT_APP_ID
+        sync: false
+      - key: HUBSPOT_CLIENT_ID
+        sync: false
+      - key: HUBSPOT_CLIENT_SECRET
+        sync: false
+      - key: HUBSPOT_DEVELOPER_API_KEY
+        sync: false
+      - key: HUBSPOT_CHANNEL_ID
+        sync: false
