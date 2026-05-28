@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const DEFAULT_SCOPES = [
+  "oauth",
   "conversations.custom_channels.read",
   "conversations.custom_channels.write",
   "conversations.read",
