@@ -25,6 +25,7 @@ When the project opens in HubSpot, open the app component and go to the Auth tab
 
 Required app scopes:
 
+- `oauth`
 - `conversations.custom_channels.read`
 - `conversations.custom_channels.write`
 - `conversations.read`

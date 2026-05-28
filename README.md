@@ -43,6 +43,7 @@ https://telegram-hubspot-integration.onrender.com/hubspot/oauth/callback
 
 Required scopes:
 
+- `oauth`
 - `conversations.custom_channels.read`
 - `conversations.custom_channels.write`
 - `conversations.read`

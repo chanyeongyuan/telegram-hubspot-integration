@@ -11,6 +11,7 @@
         "https://telegram-hubspot-integration.onrender.com/hubspot/oauth/callback"
       ],
       "requiredScopes": [
+        "oauth",
         "conversations.custom_channels.read",
         "conversations.custom_channels.write",
         "conversations.read",
