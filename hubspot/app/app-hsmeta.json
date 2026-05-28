@@ -1,0 +1,41 @@
+{
+  "uid": "telegram_hubspot_custom_channel",
+  "type": "app",
+  "config": {
+    "description": "Connect Telegram Business 1:1 enquiries to HubSpot Conversations through a custom channel.",
+    "name": "Telegram Business HubSpot Bridge",
+    "distribution": "private",
+    "auth": {
+      "type": "oauth",
+      "redirectUrls": [
+        "https://telegram-hubspot-integration.onrender.com/hubspot/oauth/callback"
+      ],
+      "requiredScopes": [
+        "conversations.custom_channels.read",
+        "conversations.custom_channels.write",
+        "conversations.read",
+        "crm.objects.contacts.write"
+      ],
+      "optionalScopes": [],
+      "conditionallyRequiredScopes": []
+    },
+    "permittedUrls": {
+      "fetch": [
+        "https://api.hubapi.com",
+        "https://api.telegram.org",
+        "https://telegram-hubspot-integration.onrender.com"
+      ],
+      "iframe": [
+        "https://telegram-hubspot-integration.onrender.com"
+      ],
+      "img": [
+        "https://telegram-hubspot-integration.onrender.com"
+      ]
+    },
+    "support": {
+      "supportEmail": "ychan@hubspot.com",
+      "documentationUrl": "https://github.com/chanyeongyuan/telegram-hubspot-integration",
+      "supportUrl": "https://github.com/chanyeongyuan/telegram-hubspot-integration/issues"
+    }
+  }
+}

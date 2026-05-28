@@ -30,6 +30,17 @@ Telegram will send `business_connection`, `business_message`, `edited_business_m
 
 HubSpot custom channels require a HubSpot public/developer app. Private apps are not enough for custom-channel registration.
 
+This repo includes a HubSpot Projects app definition:
+
+- `hsproject.json`
+- `hubspot/app/app-hsmeta.json`
+
+The app is configured as a private OAuth developer app using the Render callback URL:
+
+```text
+https://telegram-hubspot-integration.onrender.com/hubspot/oauth/callback
+```
+
 Required scopes:
 
 - `conversations.custom_channels.read`
@@ -39,22 +50,33 @@ Required scopes:
 
 Then:
 
-1. Copy `.env.example` to `.env` and fill in the HubSpot app and Telegram values.
+1. Install and authenticate the HubSpot CLI, then upload the project:
+
+```bash
+npm install -g @hubspot/cli@latest
+hs account auth
+npm run hubspot:project:validate
+npm run hubspot:project:upload
+npm run hubspot:project:open
+```
+
+2. Open the uploaded app's Auth tab in HubSpot and copy its App ID, Client ID, and Client secret.
+3. Copy `.env.example` to `.env` and fill in the HubSpot app and Telegram values.
    On Render, `PUBLIC_BASE_URL` can be left blank because the service uses Render's `RENDER_EXTERNAL_URL`.
-2. Register or update the custom channel:
+4. Register or update the custom channel:
 
 ```bash
 npm run setup:hubspot-channel
 ```
 
-3. Set `HUBSPOT_CHANNEL_ID` from the response.
-4. Install/connect OAuth for portal `50444105` by opening:
+5. Set `HUBSPOT_CHANNEL_ID` from the response.
+6. Install/connect OAuth for portal `50444105` by opening:
 
 ```text
 https://your-service.example.com/hubspot/oauth/start
 ```
 
-5. Connect the channel account either through the HubSpot inbox/help desk setup flow, or directly:
+7. Connect the channel account either through the HubSpot inbox/help desk setup flow, or directly:
 
 ```bash
 TELEGRAM_BUSINESS_CONNECTION_ID=bc_... HUBSPOT_INBOX_ID=123 npm run setup:hubspot-account

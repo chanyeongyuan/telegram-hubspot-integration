@@ -2,9 +2,26 @@
 
 Portal: `50444105`
 
-## 1. Public App
+## 1. Project App
 
-Create or open a HubSpot public/developer app.
+The HubSpot app is defined in code with HubSpot Projects:
+
+- `hsproject.json`
+- `hubspot/app/app-hsmeta.json`
+
+It is configured as a private OAuth developer app, which is the right shape for a custom channel used by this business rather than a Marketplace listing.
+
+Upload it with the HubSpot CLI:
+
+```bash
+npm install -g @hubspot/cli@latest
+hs account auth
+npm run hubspot:project:validate
+npm run hubspot:project:upload
+npm run hubspot:project:open
+```
+
+When the project opens in HubSpot, open the app component and go to the Auth tab.
 
 Required app scopes:
 
@@ -22,11 +39,11 @@ Values to copy into `.env`:
 
 ## 2. App URLs
 
-These depend on `PUBLIC_BASE_URL`.
+These are already set in `hubspot/app/app-hsmeta.json` for the Render service.
 
-- OAuth redirect URL: `<PUBLIC_BASE_URL>/hubspot/oauth/callback`
-- Channel setup URL: `<PUBLIC_BASE_URL>/hubspot/channel-account/setup`
-- Channel webhook URL: `<PUBLIC_BASE_URL>/webhooks/hubspot`
+- OAuth redirect URL: `https://telegram-hubspot-integration.onrender.com/hubspot/oauth/callback`
+- Channel setup URL: `https://telegram-hubspot-integration.onrender.com/hubspot/channel-account/setup`
+- Channel webhook URL: `https://telegram-hubspot-integration.onrender.com/webhooks/hubspot`
 
 ## 3. Register Channel
 

@@ -10,7 +10,11 @@
   "scripts": {
     "start": "node src/server.js",
     "test": "node --test",
-    "check": "node --check src/server.js && node --check scripts/register-hubspot-channel.js && node --check scripts/create-channel-account.js && node --check scripts/set-telegram-webhook.js",
+    "check": "node --check src/server.js && node --check scripts/register-hubspot-channel.js && node --check scripts/create-channel-account.js && node --check scripts/set-telegram-webhook.js && npm run check:hubspot-project",
+    "check:hubspot-project": "node -e \"const fs=require('node:fs'); for (const file of ['hsproject.json','hubspot/app/app-hsmeta.json']) JSON.parse(fs.readFileSync(file,'utf8'));\"",
+    "hubspot:project:validate": "hs project validate",
+    "hubspot:project:upload": "hs project upload",
+    "hubspot:project:open": "hs project open",
     "setup:hubspot-channel": "node scripts/register-hubspot-channel.js",
     "setup:hubspot-account": "node scripts/create-channel-account.js",
     "setup:telegram-webhook": "node scripts/set-telegram-webhook.js"
