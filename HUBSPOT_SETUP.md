@@ -64,7 +64,7 @@ HUBSPOT_CHANNEL_ID=
 After deployment, open:
 
 ```text
-<PUBLIC_BASE_URL>/hubspot/oauth/start
+https://telegram-hubspot-integration.onrender.com/hubspot/oauth/start
 ```
 
 Install into portal `50444105`.

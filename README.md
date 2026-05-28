@@ -73,7 +73,7 @@ npm run setup:hubspot-channel
 6. Install/connect OAuth for portal `50444105` by opening:
 
 ```text
-https://your-service.example.com/hubspot/oauth/start
+https://telegram-hubspot-integration.onrender.com/hubspot/oauth/start
 ```
 
 7. Connect the channel account either through the HubSpot inbox/help desk setup flow, or directly:
